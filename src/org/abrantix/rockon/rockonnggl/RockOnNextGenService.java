@@ -836,12 +836,40 @@ public class RockOnNextGenService extends Service {
     			getString(R.string.preference_scrobble_list_key), 
     			getString(R.string.preference_scrobble_value_dont));
     	
+    	sendGTalkStatusBroadcast(state);
     	// check if scrobbling is enabled, and to whom we should send the broadcast
     	if (who.equals(getString(R.string.preference_scrobble_value_sls))) {
     		sendScrobbleBroadcastSLS(state);
     	} else if (who.equals(getString(R.string.preference_scrobble_value_sd))) {
     		sendScrobbleBroadcastSD(state);
     	}
+    }
+    
+    private void sendGTalkStatusBroadcast(int state) {
+    	Log.d(TAG, "Sending scrobble broadcast to GTalkStatus");
+    	Intent i = new Intent("com.gtalkstatus.android.updaterintent");
+    	
+    	i.putExtra("app-name", "RockOn NextGen"); // TODO: what is the name of this app?
+    	i.putExtra("app-package", "org.abrantix.rockon.rockonnggl");
+    	
+    	String playstate = "";
+    	switch(state)
+    	{
+    	case Constants.SCROBBLE_PLAYSTATE_START:
+    	case Constants.SCROBBLE_PLAYSTATE_RESUME:
+    		playstate = "is_playing";
+			break;
+    	default: 
+    		playstate = "not_playing";
+    	}
+    	
+    	i.putExtra("state", playstate);
+    	i.putExtra("artist", getArtistName());
+        i.putExtra("album",getAlbumName());
+        i.putExtra("track", getTrackName());
+        i.putExtra("duration", (int)(duration()/1000));
+        
+        sendBroadcast(i);
     }
     
     private void sendScrobbleBroadcastSLS(int state) {
