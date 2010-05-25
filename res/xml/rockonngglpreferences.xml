@@ -59,7 +59,12 @@
                 android:persistent="true"
                 android:entries="@array/preference_scrobble_list_names"
                 android:entryValues="@array/preference_scrobble_list_values"
-                android:defaultValue="@string/preference_scrobble_value_dont" />
+				android:defaultValue="@string/preference_scrobble_value_dont" />
+	        <CheckBoxPreference
+                android:key="@string/preference_key_gtalkstatus"
+                android:title="@string/preference_title_gtalkstatus"
+                android:summary="@string/preference_summary_gtalkstatus"
+                android:persistent="true" />    
             <Preference
                 android:key="@string/preference_key_donate"
                 android:title="@string/preference_title_donate"

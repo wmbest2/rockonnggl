@@ -89,6 +89,14 @@ public class RockOnNextGenPreferences extends PreferenceActivity{
 //		((ClearAlbumArtDialogPreference)findPreference(getString(R.string.preference_key_clear_album_art))).
 //			setOnPreferenceChangeListener(mClearAlbumArtDialogPreferenceChangeListener);
 		
+		/* Gtalk Status Intent */
+		((CheckBoxPreference)findPreference(getString(R.string.preference_key_gtalkstatus))).
+			setChecked(
+				PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).
+					getBoolean(getString(R.string.preference_key_gtalkstatus), false));
+		((CheckBoxPreference)findPreference(getString(R.string.preference_key_gtalkstatus))).
+			setOnPreferenceChangeListener(booleanPreferenceChangeListener);
+
 		/* Donate */
 		((Preference)findPreference(getString(R.string.preference_key_donate))).
 			setOnPreferenceClickListener(donatePreferenceClickListener);

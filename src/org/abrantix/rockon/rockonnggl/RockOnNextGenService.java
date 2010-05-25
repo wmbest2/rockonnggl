@@ -855,7 +855,7 @@ public class RockOnNextGenService extends Service {
     
     private void sendGTalkStatusBroadcast(int state) {
     	Log.d(TAG, "Sending scrobble broadcast to GTalkStatus");
-    	Intent i = new Intent("com.gtalkstatus.android.updaterintent");
+    	Intent i = new Intent("com.gtalkstatus.android.updatestatus");
     	
     	i.putExtra("app-name", "RockOn NextGen"); // TODO: what is the name of this app?
     	i.putExtra("app-package", "org.abrantix.rockon.rockonnggl");

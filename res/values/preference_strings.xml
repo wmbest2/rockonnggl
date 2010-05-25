@@ -49,7 +49,12 @@
     <string name="preference_scrobble_name_sd">Scrobble Droid</string>
     <string name="preference_scrobble_value_dont">no</string>
     <string name="preference_scrobble_value_sls">sls</string>
-    <string name="preference_scrobble_value_sd">sd</string>
+	<string name="preference_scrobble_value_sd">sd</string>
+
+	<!-- GTALK STATUS -->
+    <string name="preference_key_gtalkstatus">mGtalkstatus</string>
+    <string name="preference_title_gtalkstatus">GTalk Status</string>
+    <string name="preference_summary_gtalkstatus">Send data to Gtalk status updater by Scott Ferguson</string>
     
 	<!--	CLEAR ALBUM ART    -->
 	<string name="preference_key_clear_album_art">clearAlbumArtKey</string>
